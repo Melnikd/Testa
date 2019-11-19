@@ -17,13 +17,14 @@ public class BaseTest {
 
     @BeforeSuite
     public static void beforeTastes() {
-        List<String> logins = GenerateEmail.generateEmail(2);
-        List<MakeUpCredentials> makeUpCredentials = GenerateCredentialsUtils.generateCredentials(logins);
-        List<MakeUpCredentials> goodCredentials = new ArrayList<>();
-        List<MakeUpCredentials> badCredentials = new ArrayList<>();
+
 
         if (ResultReaderUtils.readCredentials("Success.txt").isEmpty()) {
 
+            List<String> logins = GenerateEmail.generateEmail(2);
+            List<MakeUpCredentials> makeUpCredentials = GenerateCredentialsUtils.generateCredentials(logins);
+            List<MakeUpCredentials> goodCredentials = new ArrayList<>();
+            List<MakeUpCredentials> badCredentials = new ArrayList<>();
 
             for (MakeUpCredentials credentials : makeUpCredentials) {
                 if (CreateAccount.toRegister(credentials)) {
@@ -39,8 +40,13 @@ public class BaseTest {
 
         }
         if (ResultReaderUtils.readCredentials("Failed.txt").isEmpty()) {
-            for (MakeUpCredentials credentials : makeUpCredentials) {
 
+            List<String> logins = GenerateEmail.generateEmail(2);
+            List<MakeUpCredentials> makeUpCredentials = GenerateCredentialsUtils.generateCredentials(logins);
+            List<MakeUpCredentials> goodCredentials = new ArrayList<>();
+            List<MakeUpCredentials> badCredentials = new ArrayList<>();
+
+            for (MakeUpCredentials credentials : makeUpCredentials) {
                 String wrong = credentials.getLogin() + "@1";
 
                 System.out.println("NOT registered : " + credentials);

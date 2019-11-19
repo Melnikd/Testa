@@ -1,3 +1,5 @@
+import utils.ResultReaderUtils;
+
 //import model.MakeUpCredentials;
 //import operations.GenerateEmail;
 //import pages.makeUP.AccountPage;
@@ -103,3 +105,12 @@
 //
 //
 //}
+public class Main{
+public static void main(String[]args){
+
+    System.out.println("Start");
+    if(ResultReaderUtils.readCredentials("Success.txt").isEmpty()){
+        System.out.println("Vse ploho");
+    }
+        }
+}

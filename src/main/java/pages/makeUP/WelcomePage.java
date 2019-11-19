@@ -21,12 +21,20 @@ public class WelcomePage {
     private WebElement fieldInputPassword;
 
 
-    @FindBy(xpath = "//div[@data-popup-handler='auth']")
+    @FindBy(xpath = "//a[@]href='/user/'")
+    private WebElement buttonCabinetEntrance;
+
+    @FindBy(xpath ="//div[@data-popup-handler='auth']")
     private WebElement buttonCabinet;
 
 
     @FindBy(xpath = "//a[@href='/register/']")
     private WebElement buttonRegistration;
+
+   // @FindBy(xpath = "//button[@type='submit']")
+    @FindBy(xpath = "//*[contains(text(), 'Войти')]")
+    private WebElement buttonEntrance;
+   // <button type="submit" formnovalidate="" class="button full-width">Войти</button>
 
     public static WelcomePage createWelcomePage() {
         DriverManager.getDriver().get("https://makeup.com.ua/");
@@ -49,11 +57,20 @@ public class WelcomePage {
         buttonCabinet.click();
         return this;
     }
+    public AccountPage clickButtonEntrance(){
+        buttonEntrance.click();
+        return AccountPage.createAccounrPage();
+    }
+    public AccountPage clickButtonCabinetEntrance(){
+        buttonCabinetEntrance.click();
+        return AccountPage.createAccounrPage();
+    }
 
     public RegistrationPage clickButtonRegistration() {
         buttonRegistration.click();
         return RegistrationPage.createRegistrationPage();
     }
+
 
 
 }
