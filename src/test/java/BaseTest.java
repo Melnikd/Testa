@@ -43,7 +43,6 @@ public class BaseTest {
 
             List<String> logins = GenerateEmail.generateEmail(2);
             List<MakeUpCredentials> makeUpCredentials = GenerateCredentialsUtils.generateCredentials(logins);
-            List<MakeUpCredentials> goodCredentials = new ArrayList<>();
             List<MakeUpCredentials> badCredentials = new ArrayList<>();
 
             for (MakeUpCredentials credentials : makeUpCredentials) {

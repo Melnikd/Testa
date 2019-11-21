@@ -21,8 +21,10 @@ public class CreateAccount {
             WelcomePage welcomePage = WelcomePage.createWelcomePage();
             RegistrationPage registrationPage;
             AccountPage accountPage;
-            welcomePage.clickButtonCabinet();
-            registrationPage = welcomePage.clickButtonRegistration();
+
+            registrationPage = WelcomePage.createWelcomePage()
+                    .clickButtonCabinet()
+                    .clickButtonRegistration();
             registrationPage.typeFieldname()
                     .typeFieldLastName()
                     .typeFieldEmail(generateCredentials)
@@ -35,8 +37,8 @@ public class CreateAccount {
                     .typeFieldHouse()
                     .typeFieldPassword(generateCredentials)
                     .typeFieldRepeatPassword(generateCredentials);
-            accountPage = registrationPage.clickButtonSubmit();
-            accountPage.clickFieldCabinet()
+            registrationPage.clickButtonSubmit()
+                    .clickFieldCabinet()
                     .clickFieldlogout();
         } catch (Exception e) {
             e.printStackTrace();
