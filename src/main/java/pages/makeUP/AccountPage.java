@@ -1,12 +1,10 @@
 package pages.makeUP;
 
-import core.DriverManager;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
+import pages.BasePage;
 
-public class AccountPage {
+public class AccountPage extends BasePage {
 
 
     @FindBy(xpath = "//a[@href='/user/']")
@@ -15,8 +13,12 @@ public class AccountPage {
     @FindBy(xpath = "//a[@href='/user/logout/']")
     private WebElement fieldlogout;
 
+    public AccountPage() {
+        super("//makeup.com.ua/user/");
+    }
+
     public static AccountPage createAccounrPage() {
-        return PageFactory.initElements(DriverManager.getDriver(), AccountPage.class);
+        return new AccountPage();
     }
 
 

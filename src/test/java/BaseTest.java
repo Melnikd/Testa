@@ -2,9 +2,14 @@ import core.DriverManager;
 import model.MakeUpCredentials;
 import operations.CreateAccount;
 import operations.GenerateEmail;
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.AfterSuite;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeTest;
 import pages.makeUP.AccountPage;
+import pages.makeUP.WelcomePage;
 import utils.GenerateCredentialsUtils;
 import utils.ResultReaderUtils;
 import utils.ResultWriterUtils;
@@ -16,7 +21,7 @@ public class BaseTest {
 
 
     @BeforeSuite
-    public static void beforeTastes() {
+    public static void beforeSuite() {
 
 
         if (ResultReaderUtils.readCredentials("Success.txt").isEmpty()) {
@@ -54,6 +59,12 @@ public class BaseTest {
             ResultWriterUtils.writeToFile("Failed.txt", badCredentials);
 
         }
+    }
+    @AfterTest
+    public static void afterTest(){
+        if(WelcomePage.createWelcomePage().findButtonCabinetEntrance()){
+            WelcomePage.createWelcomePage().logOut();}
+
     }
 
     @AfterSuite

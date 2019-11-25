@@ -2,16 +2,15 @@ package pages.makeUP;
 
 import core.DriverManager;
 import model.MakeUpCredentials;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import pages.BasePage;
 
-public class WelcomePage {
+public class WelcomePage extends BasePage {
     /**
      * <summary>page for text<summary>
      */
-
 
 
     @FindBy(xpath = "//input[@name='user_login']")
@@ -24,30 +23,33 @@ public class WelcomePage {
     @FindBy(xpath = "//a[@]href='/user/'")
     private WebElement buttonCabinetEntrance;
 
-    @FindBy(xpath ="//div[@data-popup-handler='auth']")
+    @FindBy(xpath = "//div[@data-popup-handler='auth']")
     private WebElement buttonCabinet;
 
 
     @FindBy(xpath = "//a[@href='/register/']")
     private WebElement buttonRegistration;
 
-   // @FindBy(xpath = "//button[@type='submit']")
+    // @FindBy(xpath = "//button[@type='submit']")
     @FindBy(xpath = "//*[contains(text(), 'Войти')]")
     private WebElement buttonEntrance;
-   // <button type="submit" formnovalidate="" class="button full-width">Войти</button>
+
+    private WelcomePage() {
+        super("https://makeup.com.ua/");
+    }
+    // <button type="submit" formnovalidate="" class="button full-width">Войти</button>
 
     public static WelcomePage createWelcomePage() {
-        DriverManager.getDriver().get("https://makeup.com.ua/");
-        WelcomePage welcomePage = PageFactory.initElements(DriverManager.getDriver(), WelcomePage.class);
-        return welcomePage;
+
+       return new WelcomePage();
     }
 
-    public WelcomePage typefieldInputLogin(MakeUpCredentials credentials){
+    public WelcomePage typefieldInputLogin(MakeUpCredentials credentials) {
         fieldInputLogin.sendKeys(credentials.getLogin());
         return this;
     }
 
-    public WelcomePage typefieldInputPassword(MakeUpCredentials credentials){
+    public WelcomePage typefieldInputPassword(MakeUpCredentials credentials) {
         fieldInputPassword.sendKeys(credentials.getPassword());
         return this;
     }
@@ -57,11 +59,13 @@ public class WelcomePage {
         buttonCabinet.click();
         return this;
     }
-    public AccountPage clickButtonEntrance(){
+
+    public AccountPage clickButtonEntrance() {
         buttonEntrance.click();
         return AccountPage.createAccounrPage();
     }
-    public AccountPage clickButtonCabinetEntrance(){
+
+    public AccountPage clickButtonCabinetEntrance() {
         buttonCabinetEntrance.click();
         return AccountPage.createAccounrPage();
     }
@@ -71,6 +75,20 @@ public class WelcomePage {
         return RegistrationPage.createRegistrationPage();
     }
 
+    public boolean  logOut(){
+
+     WelcomePage welcomePage = new WelcomePage();
+     welcomePage.clickButtonCabinetEntrance()
+               .clickFieldCabinet()
+               .clickFieldlogout();
+       return true;
+
+    }
+
+    public boolean findButtonCabinetEntrance(){
+        buttonCabinetEntrance.isDisplayed();
+        return true;
+    }
 
 
 }

@@ -5,9 +5,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import pages.BasePage;
 import utils.SleepUtils;
 
-public class GenerateEmailPage {
+public class GenerateEmailPage extends BasePage {
 
 
     //  driver.get("https://temp-mail.org/ru/");
@@ -23,10 +24,14 @@ public class GenerateEmailPage {
     @FindBy(xpath = "//a[@id='click-to-refresh']")
     private WebElement buttonToRefresh;
 
+    public GenerateEmailPage() {
+        super("https://temp-mail.org/ru/");
+    }
+
 
     public static GenerateEmailPage createGeneratePage() {
-        DriverManager.getDriver().get("https://temp-mail.org/ru/");
-        return PageFactory.initElements(DriverManager.getDriver(), GenerateEmailPage.class);
+
+        return new GenerateEmailPage();
     }
 
     public String getMail() {

@@ -12,10 +12,8 @@ public class Entrance {
             WelcomePage welcomePage = WelcomePage.createWelcomePage();
             welcomePage.clickButtonCabinet()
                     .typefieldInputLogin(credentials)
-                    .typefieldInputPassword(credentials);
-            AccountPage accountPage =welcomePage.clickButtonEntrance();
-            accountPage.clickFieldCabinet()
-                    .clickFieldlogout();
+                    .typefieldInputPassword(credentials)
+                    .clickButtonEntrance();
         } catch (Exception e) {
             e.printStackTrace();
             return false;

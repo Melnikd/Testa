@@ -6,9 +6,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import pages.BasePage;
 import utils.SleepUtils;
 
-public class RegistrationPage {
+public class RegistrationPage extends BasePage {
 
 
     @FindBy(xpath = "//input[@id='name']")
@@ -58,8 +59,12 @@ public class RegistrationPage {
     @FindBy(xpath = "//button[@class='button']")
     private WebElement buttonSubmit;
 
+    public RegistrationPage() {
+        super("https://makeup.com.ua/register/");
+    }
+
     public static RegistrationPage createRegistrationPage() {
-        return PageFactory.initElements(DriverManager.getDriver(), RegistrationPage.class);
+        return new RegistrationPage();
     }
 
     //////////////////////////////////////////////////
