@@ -2,12 +2,10 @@ import core.DriverManager;
 import model.MakeUpCredentials;
 import operations.CreateAccount;
 import operations.GenerateEmail;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.*;
 import pages.makeUP.AccountPage;
 import pages.makeUP.WelcomePage;
 import utils.GenerateCredentialsUtils;
@@ -54,16 +52,20 @@ public class BaseTest {
                 String wrong = credentials.getLogin() + "@1";
 
                 System.out.println("NOT registered : " + credentials);
-                badCredentials.add(new MakeUpCredentials(wrong,credentials.getPassword(),credentials.getPhoneNumber()));
+                badCredentials.add(new MakeUpCredentials(wrong, credentials.getPassword(), credentials.getPhoneNumber()));
             }
             ResultWriterUtils.writeToFile("Failed.txt", badCredentials);
 
         }
     }
-    @AfterTest
-    public static void afterTest(){
-        if(WelcomePage.createWelcomePage().findButtonCabinetEntrance()){
-            WelcomePage.createWelcomePage().logOut();}
+
+    @AfterMethod
+    public static void afterTest() throws InterruptedException {
+
+        WelcomePage welcomePage = WelcomePage.createWelcomePage();
+        if (welcomePage.findButtonCabinetEntrance()) {
+            welcomePage.logOut();
+        }
 
     }
 

@@ -7,11 +7,14 @@ import utils.ResultReaderUtils;
 
 import java.util.List;
 
+import static org.testng.Assert.assertFalse;
+import static org.testng.Assert.assertTrue;
+
 public class TestNegative extends BaseTest {
     @Test(dataProvider = "unsuccessfulCredentials")
     public void sadRename(MakeUpCredentials readCredential) {
-        Assert.assertTrue((Entrance.entrance(readCredential)),"With negative data validation passed  " + readCredential);
-        Assert.assertFalse((Entrance.entrance(readCredential)),"Validation failed with negative data  " + readCredential);
+        //assertTrue((Entrance.entrance(readCredential)),"With negative data validation passed  " + readCredential);
+        assertFalse((Entrance.entrance(readCredential)),"Validation failed with negative data  " + readCredential);
 //        if (Entrance.entrance(readCredential)) {
 //            System.out.println("With negative data validation passed  " + readCredential);
 //        } else {

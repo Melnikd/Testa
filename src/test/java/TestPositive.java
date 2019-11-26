@@ -18,7 +18,7 @@ public class TestPositive extends BaseTest {
     public void happyRename(MakeUpCredentials readCredential) {
 
         assertTrue(Entrance.entrance(readCredential), "With positive data validation passed    " + readCredential.getLogin() + "  " + readCredential.getPassword());
-        assertFalse(Entrance.entrance(readCredential),"Validation failed with positive data    " + readCredential.getLogin() + "  " + readCredential.getPassword());
+        //assertFalse(Entrance.entrance(readCredential),"Validation failed with positive data    " + readCredential.getLogin() + "  " + readCredential.getPassword());
 //        if (Entrance.entrance(readCredential)) {
 //            System.out.println("With positive data validation passed " + readCredential.getLogin() + "  " + readCredential.getPassword());//
 //        } else {

@@ -1,10 +1,8 @@
 package pages.makeUP;
 
-import core.DriverManager;
 import model.MakeUpCredentials;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 import pages.BasePage;
 
 public class WelcomePage extends BasePage {
@@ -20,7 +18,7 @@ public class WelcomePage extends BasePage {
     private WebElement fieldInputPassword;
 
 
-    @FindBy(xpath = "//a[@]href='/user/'")
+    @FindBy(xpath = "//a[@href='/user/']")
     private WebElement buttonCabinetEntrance;
 
     @FindBy(xpath = "//div[@data-popup-handler='auth']")
@@ -41,7 +39,7 @@ public class WelcomePage extends BasePage {
 
     public static WelcomePage createWelcomePage() {
 
-       return new WelcomePage();
+        return new WelcomePage();
     }
 
     public WelcomePage typefieldInputLogin(MakeUpCredentials credentials) {
@@ -62,12 +60,17 @@ public class WelcomePage extends BasePage {
 
     public AccountPage clickButtonEntrance() {
         buttonEntrance.click();
-        return AccountPage.createAccounrPage();
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return AccountPage.createAccountPage();
     }
 
     public AccountPage clickButtonCabinetEntrance() {
         buttonCabinetEntrance.click();
-        return AccountPage.createAccounrPage();
+        return AccountPage.createAccountPage();
     }
 
     public RegistrationPage clickButtonRegistration() {
@@ -75,19 +78,24 @@ public class WelcomePage extends BasePage {
         return RegistrationPage.createRegistrationPage();
     }
 
-    public boolean  logOut(){
+    public boolean logOut() {
 
-     WelcomePage welcomePage = new WelcomePage();
-     welcomePage.clickButtonCabinetEntrance()
-               .clickFieldCabinet()
-               .clickFieldlogout();
-       return true;
+        WelcomePage welcomePage = new WelcomePage();
+        welcomePage.clickButtonCabinetEntrance()
+                .clickFieldCabinet()
+                .clickFieldlogout();
+        return true;
 
     }
 
-    public boolean findButtonCabinetEntrance(){
-        buttonCabinetEntrance.isDisplayed();
-        return true;
+    public boolean findButtonCabinetEntrance() {
+        try {
+            buttonCabinetEntrance.isDisplayed();
+            return true;
+        } catch (Exception ex) {
+            return false;
+        }
+
     }
 
 
