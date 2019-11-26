@@ -10,7 +10,7 @@ import java.util.List;
 import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
-public class TestNegative extends BaseTest {
+public class NegativeTestEntrance extends BaseTest {
     @Test(dataProvider = "unsuccessfulCredentials")
     public void sadRename(MakeUpCredentials readCredential) {
         //assertTrue((Entrance.entrance(readCredential)),"With negative data validation passed  " + readCredential);

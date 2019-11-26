@@ -61,6 +61,7 @@ public class RegistrationPage extends BasePage {
     }
 
     public static RegistrationPage createRegistrationPage() {
+
         return new RegistrationPage();
     }
 
