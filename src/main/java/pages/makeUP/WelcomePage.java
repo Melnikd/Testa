@@ -60,11 +60,11 @@ public class WelcomePage extends BasePage {
 
     public AccountPage clickButtonEntrance() {
         buttonEntrance.click();
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+       // try {
+           // Thread.sleep(1000);
+        //} catch (InterruptedException e) {
+       //     e.printStackTrace();
+      //  }
         return AccountPage.createAccountPage();
     }
 
