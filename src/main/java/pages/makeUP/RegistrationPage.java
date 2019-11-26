@@ -1,11 +1,8 @@
 package pages.makeUP;
 
-import core.DriverManager;
 import model.MakeUpCredentials;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 import pages.BasePage;
 import utils.SleepUtils;
 
@@ -135,7 +132,7 @@ public class RegistrationPage extends BasePage {
 
     public AccountPage clickButtonSubmit() {
         buttonSubmit.click();
-        return AccountPage.createAccounrPage();
+        return AccountPage.createAccountPage();
     }
 
 

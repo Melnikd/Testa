@@ -14,10 +14,10 @@ public class AccountPage extends BasePage {
     private WebElement fieldlogout;
 
     public AccountPage() {
-        super("//makeup.com.ua/user/");
+        super("https://makeup.com.ua/user/");
     }
 
-    public static AccountPage createAccounrPage() {
+    public static AccountPage createAccountPage() {
         return new AccountPage();
     }
 
