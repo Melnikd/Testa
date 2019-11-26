@@ -14,7 +14,7 @@ public class TestNegative extends BaseTest {
     @Test(dataProvider = "unsuccessfulCredentials")
     public void sadRename(MakeUpCredentials readCredential) {
         //assertTrue((Entrance.entrance(readCredential)),"With negative data validation passed  " + readCredential);
-        assertTrue((Entrance.entrance(readCredential)),"Validation failed with negative data  " + readCredential);
+        assertFalse((Entrance.entrance(readCredential)),"Validation failed with negative data  " + readCredential);
 //        if (Entrance.entrance(readCredential)) {
 //            System.out.println("With negative data validation passed  " + readCredential);
 //        } else {

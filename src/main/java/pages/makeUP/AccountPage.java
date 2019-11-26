@@ -29,7 +29,7 @@ public class AccountPage extends BasePage {
 
     public WelcomePage clickFieldlogout() {
         fieldlogout.click();
-        return  WelcomePage.createWelcomePage();
+        return WelcomePage.createWelcomePage();
     }
 
 }

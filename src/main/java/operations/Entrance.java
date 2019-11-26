@@ -13,7 +13,9 @@ public class Entrance {
             welcomePage.clickButtonCabinet()
                     .typefieldInputLogin(credentials)
                     .typefieldInputPassword(credentials)
-                    .clickButtonEntrance();
+                    .clickButtonEntrance()
+                    .clickButtonCabinetEntrance();
+            ;
         } catch (Exception e) {
             e.printStackTrace();
             return false;

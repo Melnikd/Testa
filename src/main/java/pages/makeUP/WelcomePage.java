@@ -58,14 +58,14 @@ public class WelcomePage extends BasePage {
         return this;
     }
 
-    public AccountPage clickButtonEntrance() {
+    public WelcomePage clickButtonEntrance() {
         buttonEntrance.click();
        // try {
            // Thread.sleep(1000);
         //} catch (InterruptedException e) {
        //     e.printStackTrace();
       //  }
-        return AccountPage.createAccountPage();
+        return this;
     }
 
     public AccountPage clickButtonCabinetEntrance() {
